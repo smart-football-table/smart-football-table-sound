@@ -7,6 +7,5 @@ FILES=(/sounds/*)
 
 while read msg;
 do
-   score=`echo $msg | jq -j .score[0,1]`
-   [ "$score" != "00" ] && play "${FILES[RANDOM % ${#FILES[@]}]}" &
-done < <(mosquitto_sub -h "$MQTTHOST" -p "$MQTTPORT" -t game/score)
+   play "${FILES[RANDOM % ${#FILES[@]}]}" &
+done < <(mosquitto_sub -h "$MQTTHOST" -p "$MQTTPORT" -t team/scored)
