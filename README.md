@@ -1,6 +1,6 @@
 # smart-football-table-sound
 
-Plays sounds on every received ```score``` MQTT message where the score is **not** [ 0, 0 ]
+Plays sounds on every received ```team/scored``` MQTT message. 
 
 This project uses these sounds from freesound:
 goal1, goal3, goal4, goal5, goal6, by alexpadina ( https://freesound.org/people/alexpadina/ )
