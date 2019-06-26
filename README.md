@@ -1,5 +1,7 @@
 # smart-football-table-sound
 
+[![GitLicense](https://gitlicense.com/badge/smart-football-table/smart-football-table-sound)](https://gitlicense.com/license/smart-football-table/smart-football-table-sound)
+
 Plays sounds on every received ```team/scored``` MQTT message. 
 
 This project uses these sounds from freesound:
