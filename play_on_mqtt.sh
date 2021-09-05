@@ -3,9 +3,7 @@
 [ -z "${MQTTHOST}" ] && MQTTHOST="localhost"
 [ -z "${MQTTPORT}" ] && MQTTPORT=1883
 
-FILES=(/sounds/*)
-
 while read msg;
 do
-   play "${FILES[RANDOM % ${#FILES[@]}]}" &
+   find sounds/ -type f -print0 | shuf -zn1 | xargs -0 play &`
 done < <(mosquitto_sub -h "$MQTTHOST" -p "$MQTTPORT" -t team/scored)
