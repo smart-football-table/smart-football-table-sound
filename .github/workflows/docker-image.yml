@@ -16,7 +16,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # github.event.repository.name is empty when not triggered but scheduled (via cron)
+    - id: get-repo-name
+      run: reponame=$(echo ${{GITHUB_REPOSITORY}} | cut -d'/' -f2-)
     - uses: actions/checkout@v2
     - name: Build the Docker image
       # run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-      run: docker build . --file Dockerfile --tag ${{github.event.repository.name}}
+      run: docker build . --file Dockerfile --tag ${{reponame}}
