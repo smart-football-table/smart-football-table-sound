@@ -20,6 +20,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       env:
-        REPONAME: $(echo ${{github.repository}}} | cut -d'/' -f2-)
+        GH_REPO: ${{ github.repository }}
       # run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-      run: docker build . --file Dockerfile --tag ${{env.REPONAME}}
+      run: docker build . --file Dockerfile --tag $(echo ${{GH_REPO}}} | cut -d'/' -f2-)
