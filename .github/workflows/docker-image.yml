@@ -22,4 +22,4 @@ jobs:
       env:
         GH_REPO: ${{ github.repository }}
       # run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-      run: docker build . --file Dockerfile --tag $(echo ${{GH_REPO}}} | cut -d'/' -f2-)
+      run: docker build . --file Dockerfile --tag $(echo ${{env.GH_REPO}}} | cut -d'/' -f2-)
