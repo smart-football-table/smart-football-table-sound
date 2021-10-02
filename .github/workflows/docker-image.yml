@@ -22,4 +22,4 @@ jobs:
       env:
         REPONAME: $(echo ${{env.GITHUB_REPOSITORY}} | cut -d'/' -f2-)
       # run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-      run: docker build . --file Dockerfile --tag ${{REPONAME}}
+      run: docker build . --file Dockerfile --tag ${{env.REPONAME}}
